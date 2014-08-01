@@ -17,7 +17,9 @@
   <ul class="list-unstyled" id="review_list">
     <% @location.comments.each do |c| %>
       <li>
-        <%= c.comment %> - <%= c.user.name %>
+        <div class="well">
+          <%= c.comment %> - <%= c.user.name %>
+        </div>
       </li>
     <% end %>
   </ul>
