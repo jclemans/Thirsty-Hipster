@@ -6,11 +6,17 @@ class Location < ActiveRecord::Base
 
   before_create :make_search
 
+  def hh_start_time
+    self.start_time.strftime("from %I:%M%p")
+  end
+
+  def hh_end_time
+    self.end_time.strftime("to %I:%M%p")
+  end
 
   private
 
   def make_search
-
     response = RestClient::Request.new(
       :method => :get,
       :url => "http://api.yelp.com/v2/search?term=food&location=San+Francisco"
