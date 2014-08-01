@@ -15,7 +15,11 @@
 <div id="comments">
   <h3>Comments</h3>
   <ul class="list-unstyled" id="review_list">
-    <%= render @location.comments %>
+    <% @location.comments.each do |c| %>
+      <li>
+        <%= c.comment %> - <%= c.user.name %>
+      </li>
+    <% end %>
   </ul>
 </div>
 
