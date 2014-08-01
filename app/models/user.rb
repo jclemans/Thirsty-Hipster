@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :locations, through: :comments
 
+  validates_presence_of :name, :email, :password
+
 end
