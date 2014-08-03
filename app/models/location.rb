@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
   has_many :comments
   has_many :users, through: :comments
 
-  before_create :make_search
+  before_create :search_yelp
 
   def hh_start_time
     self.start_time.strftime("from %I:%M%p")
@@ -16,10 +16,11 @@ class Location < ActiveRecord::Base
 
   private
 
-  def make_search
+  def search_yelp
+    location = self.address + " " + self.city + ", " + self.state
     response = RestClient::Request.new(
       :method => :get,
-      :url => "http://api.yelp.com/v2/search?term=food&location=San+Francisco"
+      :url => "http://api.yelp.com/v2/search?term=#{self.name}&location=#{location}"
       )
   end
 
