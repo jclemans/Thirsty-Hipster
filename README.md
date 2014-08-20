@@ -12,6 +12,10 @@ User Stories
 * As a thirsty hipster, I want to know which bars are overlooked and underappreciated, so that I can drop references to obscure taprooms in casual conversation.
 * As a thirsty hipster, I want to utilize a self-referential service to satisfy my wry sense of humor and well-developed sense of irony. 
 
+To do
+-----
+# Nest Comments in Locations Resources
+# Show all comments on the Location.show page
 
 ########################
 Useful Docs
