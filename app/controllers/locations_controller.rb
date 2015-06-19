@@ -21,7 +21,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    @q = Location.ransack(params[:q])
+    @location = @q.result.find(params[:id])
     @comment = Comment.new
     respond_to do |format|
       format.html
