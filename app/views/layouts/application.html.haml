@@ -24,7 +24,7 @@
                 %b thirstyhipster
             / Collect the nav links, forms, and other content for toggling
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
-              = render 'layouts/search'
+              = render 'locations/search' if @q 
               %ul.nav.navbar-nav.navbar-right
                 - if !user_signed_in?
                   %li= link_to "Sign up", new_user_registration_path
