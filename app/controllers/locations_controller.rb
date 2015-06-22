@@ -2,7 +2,8 @@ class LocationsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   
   def index
-    @locations = Location.all
+    @q = Location.ransack(params[:q])
+    @locations = @q.result(distinct: true)
   end
 
   def new
@@ -20,7 +21,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    @q = Location.ransack(params[:q])
+    @location = @q.result.find(params[:id])
     @comment = Comment.new
     respond_to do |format|
       format.html

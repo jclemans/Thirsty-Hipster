@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @q = Location.find(params[:location_id])
     @comment = Comment.find(params[:id])
   end
 
