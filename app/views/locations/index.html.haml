@@ -2,7 +2,5 @@
 = link_to "Add New Location", new_location_path, class: "btn btn-success"
 - @locations.each do |location|
   %h3= link_to "#{location.name}", location_path(location)
-  %p
-    = location.city
-    , #{location.state}
-  %p
+  %p= "HH from #{location.start_time.strftime('%l%P')} to #{location.end_time.strftime('%l%P')}"
+  %p= "#{location.city}, #{location.state}"

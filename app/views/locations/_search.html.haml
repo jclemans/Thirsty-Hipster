@@ -3,6 +3,11 @@
     .form-group
       = search_form_for @q, url: locations_path do |f|
         = f.search_field :name_cont, class: 'form-control'
+        start time
+        = f.time_field :start_time_gteq, class: 'form-control'
+        end time
+        = f.time_field :end_time_lteq, class: 'form-control'
         = f.submit class: 'btn btn-default'
+
 
 
